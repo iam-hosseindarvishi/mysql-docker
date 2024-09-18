@@ -39,3 +39,11 @@ To run the project, clone the repository and navigate to the directory containin
 ```bash
 git clone https://github.com/iam-hosseindarvishi/mysql-docker.git
 cd your-repository
+
+### Start the Containers
+
+Run the following command to start the MySQL and phpMyAdmin containers:
+
+```bash
+docker-compose up -d
+
