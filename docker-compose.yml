@@ -1,0 +1,37 @@
+services:
+  mysql:
+    image: mysql:oraclelinux9
+    container_name: mysql_container
+    environment:
+       MYSQL_ROOT_PASSWORD: 21210021
+       MYSQL_DATABASE: beauty_finder_db
+       MYSQL_USER: hossein
+       MYSQL_PASSWORD: 9236481
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql_network
+    restart: always
+  phpmyadmin:
+    image: phpmyadmin:5.2-apache
+    container_name: phpmyadmin_container
+    environment:
+       PMA_HOST: mysql
+       PMA_USER: root
+       PMA_PASSWORD: 21210021
+       PMA_ABSOLUTE_URI: http://localhost:8080/
+       PMA_AUTH_TYPE: config
+    ports:
+      - "8080:80"
+    networks:
+      - mysql_network
+    depends_on:
+      - mysql
+    restart: always
+volumes:
+  mysql_data:
+     driver: local
+networks:
+  mysql_network:
