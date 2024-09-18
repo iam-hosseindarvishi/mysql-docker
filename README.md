@@ -13,7 +13,7 @@ Before using this project, ensure that you have the following installed on your 
 
 This setup includes the following services:
 
-1. **MySQL**: A MySQL 8.0 database.
+1. **MySQL**: A MySQL latest database.
 2. **phpMyAdmin**: A web-based tool to manage your MySQL database.
 
 ### MySQL Configuration
@@ -37,13 +37,30 @@ To run the project, clone the repository and navigate to the directory containin
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/iam-hosseindarvishi/mysql-docker.git
+git clone https://github.com/yourusername/your-repository.git
 cd your-repository
-
+```
 ### Start the Containers
 
 Run the following command to start the MySQL and phpMyAdmin containers:
-
 ```bash
 docker-compose up -d
+```
+This will start both MySQL and phpMyAdmin in detached mode (running in the background).
 
+### Access phpMyAdmin
+Open your browser and go to http://localhost:8080 to access phpMyAdmin. Use the following credentials to log in:
+-  **Username**: `root`
+- **Password**: `rootpassword`
+
+### Stop the Containers
+```bash
+docker-compose down
+```
+This will stop and remove the containers but retain the database data in the ./mysql_data volume.
+
+### Volumes
+The data stored in MySQL is saved in the ``./mysql_data`` directory. This ensures that even if the containers are stopped or removed, the data remains intact.
+
+### Customization
+To change the MySQL root password, database name, or any other environment variables, you can modify the ``docker-compose.yml`` file as needed.
