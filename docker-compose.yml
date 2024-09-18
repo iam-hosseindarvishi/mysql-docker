@@ -3,9 +3,9 @@ services:
     image: mysql:oraclelinux9
     container_name: mysql_container
     environment:
-       MYSQL_ROOT_PASSWORD: 21210021
-       MYSQL_DATABASE: beauty_finder_db
-       MYSQL_USER: hossein
+       MYSQL_ROOT_PASSWORD: password
+       MYSQL_DATABASE: test_db
+       MYSQL_USER: root
        MYSQL_PASSWORD: 9236481
     volumes:
       - ./mysql_data:/var/lib/mysql
@@ -20,7 +20,7 @@ services:
     environment:
        PMA_HOST: mysql
        PMA_USER: root
-       PMA_PASSWORD: 21210021
+       PMA_PASSWORD: password
        PMA_ABSOLUTE_URI: http://localhost:8080/
        PMA_AUTH_TYPE: config
     ports:
