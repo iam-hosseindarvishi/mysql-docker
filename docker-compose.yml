@@ -3,10 +3,10 @@ services:
     image: mysql:oraclelinux9
     container_name: mysql_container
     environment:
-       MYSQL_ROOT_PASSWORD: password
-       MYSQL_DATABASE: test_db
-       MYSQL_USER: root
-       MYSQL_PASSWORD: 9236481
+       MYSQL_ROOT_PASSWORD: rootpassword
+       MYSQL_DATABASE: exampledb
+       MYSQL_USER: exampleuser
+       MYSQL_PASSWORD: examplepass
     volumes:
       - ./mysql_data:/var/lib/mysql
     ports:
@@ -20,7 +20,7 @@ services:
     environment:
        PMA_HOST: mysql
        PMA_USER: root
-       PMA_PASSWORD: password
+       PMA_PASSWORD: rootpassword
        PMA_ABSOLUTE_URI: http://localhost:8080/
        PMA_AUTH_TYPE: config
     ports:
